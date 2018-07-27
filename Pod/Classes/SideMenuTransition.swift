@@ -259,6 +259,7 @@ open class SideMenuTransition: UIPercentDrivenInteractiveTransition {
         if let overlayBlock = overlayBlock, let overlayView = overlayBlock() {
             overlayView.frame = mainView.bounds
             overlayView.transform = mainView.transform
+            overlayView.alpha = 0
         }
 
         return self
@@ -319,6 +320,7 @@ open class SideMenuTransition: UIPercentDrivenInteractiveTransition {
         tapView?.bounds = mainView.bounds
         statusBarView?.frame = statusBarFrame
         statusBarView?.alpha = 1
+        overlayBlock?()?.alpha = 1
         
         switch sideMenuManager.menuPresentMode {
             
@@ -453,6 +455,7 @@ extension SideMenuTransition: UIViewControllerAnimatedTransitioning {
             
             if let overlayView = overlayBlock?() {
                 topView.addSubview(overlayView)
+                overlayView.alpha = 0.3
 
                 topView.addConstraints([
                     NSLayoutConstraint(item: overlayView, attribute: .top, relatedBy: .equal, toItem: topView, attribute: .top, multiplier: 1, constant: 0),
