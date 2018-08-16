@@ -162,7 +162,7 @@ open class SideMenuManager : NSObject {
     }
     
     /// The left menu.
-    open var menuLeftNavigationController: UISideMenuNavigationController? {
+    open weak var menuLeftNavigationController: UISideMenuNavigationController? {
         willSet {
             guard menuLeftNavigationController != newValue, menuLeftNavigationController?.presentingViewController == nil else {
                 return
@@ -185,7 +185,7 @@ open class SideMenuManager : NSObject {
     }
     
     /// The right menu.
-    open var menuRightNavigationController: UISideMenuNavigationController? {
+    open weak var menuRightNavigationController: UISideMenuNavigationController? {
         willSet {
             guard menuRightNavigationController != newValue, menuRightNavigationController?.presentingViewController == nil else {
                 return
