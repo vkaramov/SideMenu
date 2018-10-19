@@ -3,6 +3,4 @@ use_frameworks!
 
 target 'Example' do
   pod "SideMenu", :path => "."
-
-  target 'ExampleTests'
 end
